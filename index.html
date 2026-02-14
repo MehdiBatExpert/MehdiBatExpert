@@ -1,0 +1,1991 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOB-IA | Construisez votre maison pour 150k€ au lieu de 250k€</title>
+    <meta name="description" content="Autoconstruction accompagnée en Normandie. Économisez 120 000€ sur votre maison écologique avec la méthode BLOKIWOOD. Guide gratuit.">
+    <meta name="keywords" content="autoconstruction, BLOKIWOOD, maison écologique, construction Normandie, économies construction, MOB-IA">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://swiftask-prod-files.s3.eu-west-3.amazonaws.com/files/e88e94ca-dd4c-4593-9f3c-85b70f53e405/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://swiftask-prod-files.s3.eu-west-3.amazonaws.com/files/bd93b8e7-0df4-4822-8ec6-db8e5547cadf/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://swiftask-prod-files.s3.eu-west-3.amazonaws.com/files/d048c8de-a9be-4468-8ecd-fe25823014ca/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://swiftask-prod-files.s3.eu-west-3.amazonaws.com/files/67bf1932-7756-4dc5-a709-c603a340680a/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="https://swiftask-prod-files.s3.eu-west-3.amazonaws.com/files/c7a570f2-d6bc-4950-9240-600e68a5c457/android-chrome-512x512.png">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --dark-green: #1B4332;
+            --forest-green: #2D5A4A;
+            --beige: #C4A77D;
+            --orange: #E67E22;
+            --white: #FFFFFF;
+            --light-bg: #FAFAF8;
+            --text-dark: #2D3436;
+            --success-green: #27AE60;
+            --error-red: #E74C3C;
+            --blokiwood-green: #8BC34A;
+            --mob-ia-green: #6B8E23;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+        }
+        
+        /* HEADER NAVIGATION */
+        .header {
+            background: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .header.scrolled {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-img {
+            height: 60px;
+            width: auto;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-main {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--mob-ia-green);
+            line-height: 1;
+        }
+        
+        .logo-tagline {
+            font-size: 0.8rem;
+            color: var(--beige);
+            font-weight: 500;
+            margin-top: 2px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--mob-ia-green);
+        }
+        
+        .nav-cta {
+            background: linear-gradient(135deg, var(--mob-ia-green) 0%, var(--forest-green) 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            color: white;
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-green) 0%, var(--forest-green) 100%);
+            color: var(--white);
+            padding: 140px 20px 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://swiftask-prod-files.s3.eu-west-3.amazonaws.com/files/9270d1e1-01ab-4018-9a09-635749f4b454/images%20_12_.jpeg') center/cover no-repeat;
+            opacity: 0.15;
+            z-index: 1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero .subtitle {
+            font-size: 1.9rem;
+            margin-bottom: 30px;
+            color: var(--beige);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .hero .highlight {
+            background: linear-gradient(135deg, var(--beige) 0%, #a68a5f 100%);
+            color: var(--white);
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: inline-block;
+            margin: 25px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .hero-stat {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .hero-stat .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--beige);
+            display: block;
+        }
+        
+        .hero-stat .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        
+        /* CONFIGURATEUR */
+        .configurator {
+            background: var(--white);
+            max-width: 650px;
+            margin: -60px auto 0;
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 15px 60px rgba(0,0,0,0.25);
+            position: relative;
+            z-index: 10;
+            border: 3px solid var(--beige);
+        }
+        
+        .configurator h2 {
+            color: var(--dark-green);
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 800;
+        }
+        
+        .configurator .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 35px;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--dark-green);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #fff;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--beige);
+            box-shadow: 0 0 0 3px rgba(196, 167, 125, 0.1);
+            transform: translateY(-1px);
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, var(--success-green) 0%, #219A52 100%);
+            color: var(--white);
+            padding: 20px 45px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(39, 174, 96, 0.4);
+            background: linear-gradient(135deg, #219A52 0%, var(--success-green) 100%);
+        }
+        
+        .privacy-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #999;
+            margin-top: 18px;
+            line-height: 1.4;
+        }
+        
+        .trust-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .trust-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--success-green);
+            font-weight: 600;
+        }
+        
+        /* SECTIONS */
+        section {
+            padding: 90px 20px;
+        }
+        
+        section h2 {
+            font-size: 2.8rem;
+            color: var(--dark-green);
+            text-align: center;
+            margin-bottom: 60px;
+            font-weight: 800;
+            position: relative;
+        }
+        
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--beige) 0%, var(--orange) 100%);
+            border-radius: 2px;
+        }
+        
+        /* PROBLÈME */
+        .probleme {
+            background: var(--light-bg);
+        }
+        
+        .probleme-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .probleme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .probleme-card {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 20px;
+            border-left: 6px solid var(--orange);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transition: transform 0.3s ease;
+        }
+        
+        .probleme-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .probleme-card .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .probleme-card h3 {
+            color: var(--dark-green);
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+        
+        .probleme-card .stat {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--orange);
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .probleme-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+        
+        /* COMPARATIF - Section révisée */
+        .comparatif {
+            background: var(--white);
+        }
+        
+        .comparison-visual-custom {
+            margin: 40px 0 60px;
+            padding: 0 20px;
+        }
+
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .comparison-side {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .comparison-side:hover {
+            transform: translateY(-5px);
+        }
+
+        .traditional {
+            border: 3px solid #e74c3c;
+        }
+
+        .blokiwood {
+            border: 3px solid #27ae60;
+        }
+
+        .house-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .comparison-side h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #2d3436;
+            font-weight: 700;
+        }
+
+        .price-tag {
+            font-size: 2.5rem;
+            font-weight: 800;
+            padding: 15px 25px;
+            border-radius: 50px;
+            margin: 20px 0 30px;
+            display: inline-block;
+        }
+
+        .price-tag.expensive {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .price-tag.affordable {
+            background: #27ae60;
+            color: white;
+        }
+
+        .features-list {
+            list-style: none;
+            text-align: left;
+            margin: 0;
+            padding: 0;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            font-size: 1.05rem;
+            line-height: 1.4;
+        }
+
+        .vs-separator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .vs-circle {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .savings-arrow {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #27ae60;
+            position: relative;
+        }
+
+        .savings-arrow::before {
+            content: '→';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #27ae60;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .savings-text {
+            display: block;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .savings-amount {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #27ae60;
+        }
+        
+        .comparison-table {
+            max-width: 950px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+            border: 2px solid var(--beige);
+        }
+        
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .comparison-table th {
+            background: linear-gradient(135deg, var(--dark-green) 0%, var(--forest-green) 100%);
+            color: var(--white);
+            padding: 25px;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        
+        .comparison-table td {
+            padding: 22px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            font-size: 1.1rem;
+            vertical-align: middle;
+        }
+        
+        .comparison-table .prix-ccmi {
+            color: var(--error-red);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .comparison-table .prix-mob {
+            color: var(--success-green);
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+        
+        .comparison-table .economie {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            font-weight: 800;
+            color: #155724;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .comparison-table .feature-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            text-align: left;
+            padding-left: 30px;
+        }
+        
+        /* USP */
+        .usp {
+            background: var(--light-bg);
+        }
+        
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .usp-card {
+            background: var(--white);
+            padding: 45px 35px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            border-top: 4px solid var(--beige);
+        }
+        
+        .usp-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .usp-card .icon {
+            font-size: 4.5rem;
+            margin-bottom: 25px;
+            display: block;
+        }
+        
+        .usp-card h3 {
+            color: var(--dark-green);
+            margin-bottom: 18px;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        
+        .usp-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        
+        /* MÉTHODE BLOKIWOOD */
+        .methode {
+            background: linear-gradient(135deg, var(--light-bg) 0%, #f0f0f0 100%);
+        }
+        
+        .methode-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: center;
+        }
+        
+        .methode-text h3 {
+            color: var(--dark-green);
+            font-size: 2rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+        
+        .methode-text p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .methode-benefits {
+            list-style: none;
+            margin: 30px 0;
+        }
+        
+        .methode-benefits li {
+            padding: 12px 0;
+            color: var(--dark-green);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .methode-benefits li::before {
+            content: "✓";
+            color: var(--success-green);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .methode-visual {
+            text-align: center;
+        }
+        
+        .methode-visual img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        /* EXPERTISE BLOKIWOOD - Section améliorée */
+        .expertise-blokiwood {
+            background: var(--white);
+            padding: 80px 20px;
+        }
+        
+        .expertise-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 40px auto 0;
+        }
+        
+        .expertise-card {
+            background: var(--light-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border-left: 5px solid var(--mob-ia-green);
+        }
+        
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .expertise-content {
+            padding: 30px;
+        }
+        
+        .expertise-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--mob-ia-green) 0%, var(--forest-green) 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .expertise-card h4 {
+            font-size: 1.4rem;
+            color: var(--dark-green);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .expertise-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+        }
+        
+        .expertise-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .expertise-features li {
+            padding: 8px 0;
+            color: var(--dark-green);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .expertise-features li::before {
+            content: "▶";
+            color: var(--mob-ia-green);
+            font-size: 0.8rem;
+        }
+        
+        /* TÉMOIGNAGES */
+        .temoignages {
+            background: var(--white);
+        }
+        
+        .temoignages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 35px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .temoignage-card {
+            background: var(--light-bg);
+            padding: 45px;
+            border-radius: 25px;
+            border-left: 6px solid var(--beige);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .temoignage-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .temoignage-card::before {
+            content: '"';
+            font-size: 5rem;
+            color: var(--beige);
+            position: absolute;
+            top: 10px;
+            left: 25px;
+            font-family: serif;
+            opacity: 0.7;
+        }
+        
+        .temoignage-card .quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--text-dark);
+            margin: 30px 0 25px;
+            line-height: 1.8;
+        }
+        
+        .temoignage-card .author {
+            font-weight: 700;
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        
+        .temoignage-card .details {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .temoignage-card .savings {
+            background: var(--success-green);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        /* FAQ */
+        .faq {
+            background: var(--light-bg);
+        }
+        
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--white);
+            padding: 30px 35px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--beige);
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transform: translateX(5px);
+        }
+        
+        .faq-item h3 {
+            color: var(--dark-green);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 700;
+        }
+        
+        .faq-item h3::before {
+            content: "❓";
+            font-size: 1.5rem;
+        }
+        
+        .faq-item p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        
+        /* CTA FINAL */
+        .cta-final {
+            background: linear-gradient(135deg, var(--dark-green) 0%, var(--forest-green) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 90px 20px;
+            position: relative;
+        }
+        
+        .cta-final::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://swiftask-prod-files.s3.eu-west-3.amazonaws.com/files/120c28b7-1652-4e12-9120-c6fe8e11538f/images%20_3_.jpeg') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .cta-final .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-final h2 {
+            color: var(--white);
+            font-size: 3.2rem;
+            margin-bottom: 25px;
+            font-weight: 800;
+        }
+        
+        .cta-final h2::after {
+            background: var(--beige);
+        }
+        
+        .cta-final .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-final .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+        
+        .cta-final .stat-item {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            min-width: 150px;
+        }
+        
+        .cta-final .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--beige);
+            display: block;
+        }
+        
+        .cta-final .stat-label {
+            font-size: 1.1rem;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        
+        .cta-final .cta-button {
+            max-width: 600px;
+            margin: 40px auto 0;
+            font-size: 1.5rem;
+            padding: 22px 50px;
+        }
+        
+        .contact-info {
+            margin-top: 40px;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .contact-info a {
+            color: var(--beige);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--dark-green);
+            color: var(--white);
+            padding: 50px 20px;
+            text-align: center;
+        }
+        
+        footer .contact {
+            margin-bottom: 25px;
+        }
+        
+        footer h3 {
+            color: var(--beige);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        footer p {
+            margin: 10px 0;
+            opacity: 0.9;
+        }
+        
+        footer a {
+            color: var(--beige);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .logo-img {
+                height: 45px;
+            }
+            
+            .logo-main {
+                font-size: 1.4rem;
+            }
+            
+            .hero {
+                padding: 120px 20px 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .hero-stats {
+                gap: 1.5rem;
+            }
+            
+            .configurator {
+                margin: 20px;
+                padding: 35px 25px;
+            }
+            
+            .configurator h2 {
+                font-size: 1.8rem;
+            }
+            
+            section h2 {
+                font-size: 2.2rem;
+            }
+            
+            .cta-final h2 {
+                font-size: 2.5rem;
+            }
+            
+            .cta-final .stats {
+                gap: 30px;
+            }
+            
+            .methode-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .temoignages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 15px 10px;
+            }
+            
+            .comparison-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .vs-separator {
+                order: 2;
+                margin: 20px 0;
+            }
+            
+            .traditional {
+                order: 1;
+            }
+            
+            .blokiwood {
+                order: 3;
+            }
+            
+            .savings-arrow::before {
+                content: '↓';
+                transform: translateX(-50%) rotate(0deg);
+            }
+            
+            .price-tag {
+                font-size: 2rem;
+            }
+            
+            .house-icon {
+                font-size: 3rem;
+            }
+            
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        /* SCROLL ANIMATIONS */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="logo-container">
+                <img src="https://swiftask-prod-files.s3.eu-west-3.amazonaws.com/files/67bf1932-7756-4dc5-a709-c603a340680a/android-chrome-192x192.png" alt="MOB-IA Logo" class="logo-img">
+                <div class="logo-text">
+                    <div class="logo-main">MOB-IA</div>
+                    <div class="logo-tagline">Construisez Autrement</div>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#methode">Méthode</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#temoignages">Témoignages</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <div class="container">
+            <h1>Construisez Votre Maison<br>Pour 150k€ au lieu de 250k€</h1>
+            <p class="subtitle">Auto-construction Accompagnée BLOKIWOOD / MOB-IA</p>
+            <div class="highlight">
+                💰 Économisez 100 000€ • ⏱️ 18 mois • ✅ 100% de réussite
+            </div>
+            
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="number">100k€</span>
+                    <span class="label">Économie moyenne</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="number">100%</span>
+                    <span class="label">Taux de réussite</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="number">18</span>
+                    <span class="label">Mois clé en main</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONFIGURATEUR / LEAD MAGNET -->
+    <div class="container">
+        <div class="configurator fade-in-up">
+            <h2>🎯 Recevez Votre Guide Gratuit</h2>
+            <p class="subtitle">"7 Étapes pour Auto-construire sans se Planter"<br><strong>PDF complet + Calculateur de budget</strong></p>
+            
+            <form id="leadForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="prenom">Prénom *</label>
+                    <input type="text" id="prenom" name="prenom" required placeholder="Votre prénom">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="votre@email.fr">
+                </div>
+                
+                <div class="form-group">
+                    <label for="terrain">Avez-vous un terrain ? *</label>
+                    <select id="terrain" name="terrain" required>
+                        <option value="">Sélectionnez une option</option>
+                        <option value="acquis">Oui, terrain acquis</option>
+                        <option value="promesse">Promesse de vente en cours</option>
+                        <option value="recherche">En recherche active</option>
+                        <option value="non">Pas encore</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="budget">Budget estimé du projet *</label>
+                    <select id="budget" name="budget" required>
+                        <option value="">Sélectionnez une option</option>
+                        <option value="moins100">Moins de 100k€</option>
+                        <option value="100-150">100k€ - 150k€</option>
+                        <option value="150-200">150k€ - 200k€</option>
+                        <option value="plus200">Plus de 200k€</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="cta-button">
+                    📥 Télécharger le Guide Gratuit
+                </button>
+                
+                <div class="trust-indicators">
+                    <div class="trust-indicator">
+                        <span>🔒</span>
+                        <span>100% sécurisé</span>
+                    </div>
+                    <div class="trust-indicator">
+                        <span>⚡</span>
+                        <span>Envoi immédiat</span>
+                    </div>
+                    <div class="trust-indicator">
+                        <span>🆓</span>
+                        <span>Gratuit, sans engagement</span>
+                    </div>
+                </div>
+                
+                <p class="privacy-note">
+                    🔐 Vos données sont sécurisées et protégées. Pas de spam, désinscription en 1 clic.<br>
+                    Conformité RGPD garantie.
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- PROBLÈME -->
+    <section class="probleme scroll-reveal">
+        <div class="container">
+            <h2>Le Problème avec la Construction Classique</h2>
+            <p class="probleme-intro">
+                La construction traditionnelle vous enferme dans un système coûteux et opaque. 
+                Découvrez les vraies raisons pour lesquelles tant de familles se retrouvent endettées à vie.
+            </p>
+            
+            <div class="probleme-grid">
+                <div class="probleme-card">
+                    <div class="icon">💸</div>
+                    <div class="stat">30%</div>
+                    <h3>Dépassements Budget</h3>
+                    <p>30% des autoconstructeurs dépassent leur budget initial faute d'accompagnement professionnel et de méthode éprouvée</p>
+                </div>
+                
+                <div class="probleme-card">
+                    <div class="icon">🏠</div>
+                    <div class="stat">250k€</div>
+                    <h3>Prix CCMI Réel</h3>
+                    <p>Le prix réel d'une maison 100m² avec un constructeur traditionnel en 2026, options et frais cachés inclus</p>
+                </div>
+                
+                <div class="probleme-card">
+                    <div class="icon">⏰</div>
+                    <div class="stat">25 ans</div>
+                    <h3>Endettement</h3>
+                    <p>Durée moyenne d'un crédit immobilier qui hypothèque votre liberté financière et vos projets de vie</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARATIF PRIX -->
+    <section class="comparatif scroll-reveal">
+        <div class="container">
+            <h2>Combien Coûte VRAIMENT une Maison 100m² ?</h2>
+            
+            <!-- Section comparison-visual révisée -->
+            <div class="comparison-visual-custom">
+                <div class="comparison-container">
+                    <div class="comparison-side traditional">
+                        <div class="house-icon">🏠</div>
+                        <h3>Construction CCMI</h3>
+                        <div class="price-tag expensive">243 000€</div>
+                        <ul class="features-list">
+                            <li>❌ Prix annoncé trompeur</li>
+                            <li>❌ Options obligatoires cachées</li>
+                            <li>❌ Marges constructeur 40%</li>
+                            <li>❌ Dépassements fréquents</li>
+                            <li>❌ Endettement 25 ans</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="vs-separator">
+                        <div class="vs-circle">VS</div>
+                        <div class="savings-arrow">
+                            <span class="savings-text">Économie</span>
+                            <span class="savings-amount">60%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-side blokiwood">
+                        <div class="house-icon">🏡</div>
+                        <h3>MOB-IA BLOKIWOOD</h3>
+                        <div class="price-tag affordable">150 000€</div>
+                        <ul class="features-list">
+                            <li>✅ Prix transparent fixe</li>
+                            <li>✅ Tout inclus dès le départ</li>
+                            <li>✅ Zéro marge constructeur</li>
+                            <li>✅ Accompagnement expert</li>
+                            <li>✅ Liberté financière</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Poste de Dépense</th>
+                            <th>CCMI Classique</th>
+                            <th>MOB-IA Accompagné</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="feature-name"><strong>Prix annoncé (hors options)</strong></td>
+                            <td class="prix-ccmi">180 000€</td>
+                            <td class="prix-mob">-</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Options "obligatoires"</td>
+                            <td class="prix-ccmi">+45 000€</td>
+                            <td class="prix-mob">Inclus dès le départ</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">VRD + Raccordements + Taxes</td>
+                            <td class="prix-ccmi">+18 000€</td>
+                            <td class="prix-mob">27 500€</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Marges constructeur </td>
+                            <td class="prix-ccmi">+40% du total</td>
+                            <td class="prix-mob"><strong>0€ (supprimé)</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name"><strong>Kit BLOKIWOOD complet</strong></td>
+                            <td>-</td>
+                            <td class="prix-mob">52 000€</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Accompagnement A-Z</td>
+                            <td>-</td>
+                            <td class="prix-mob">10 000€</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Matériaux complémentaires</td>
+                            <td>Inclus (qualité standard)</td>
+                            <td class="prix-mob">60 500€ (qualité premium)</td>
+                        </tr>
+                        <tr style="border-top: 3px solid #333;">
+                            <td class="feature-name"><strong>TOTAL RÉEL</strong></td>
+                            <td class="prix-ccmi"><strong>243 000€</strong></td>
+                            <td class="prix-mob"><strong>150 000€</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="economie" colspan="3">
+                                🎉 ÉCONOMIE TOTALE : 97 000€
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- MÉTHODE BLOKIWOOD -->
+    <section class="methode scroll-reveal" id="methode">
+        <div class="container">
+            <h2>La Révolution BLOKIWOOD</h2>
+            <div class="methode-content">
+                <div class="methode-text">
+                    <h3>🧱 Construire comme des LEGO géants</h3>
+                    <p>
+                        BLOKIWOOD révolutionne l'autoconstruction avec un système de blocs de bois massif 
+                        emboîtables. Cette technologie 100% française éprouvée permet à n'importe qui de 
+                        monter les murs porteurs de sa maison, même sans expérience du bâtiment.
+                    </p>
+                    <p>
+                        Fini les techniques complexes, les erreurs coûteuses et les retards interminables. 
+                        Avec BLOKIWOOD, vous assemblez votre maison bloc par bloc, guidé par nos plans 
+                        détaillés et notre accompagnement expert.
+                    </p>
+                    
+                    <ul class="methode-benefits">
+                        <li>Assemblage intuitif sans compétences techniques</li>
+                        <li>Isolation thermique intégrée (RT2020)</li>
+                        <li>Résistance structurelle certifiée</li>
+                        <li>Montage 3x plus rapide qu'une construction classique</li>
+                        <li>Matériau écologique et durable</li>
+                        <li>Aucun pont thermique</li>
+                    </ul>
+                </div>
+                
+                <div class="methode-visual">
+                    <img src="https://swiftask-prod-files.s3.eu-west-3.amazonaws.com/files/8b47b7ce-cf0a-4fbf-95e4-bdcb86c5dfa2/images%20_1_.jpeg" alt="Système de construction BLOKIWOOD - Détail technique" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERTISE BLOKIWOOD - Section améliorée -->
+    <section class="expertise-blokiwood scroll-reveal" id="expertise">
+        <div class="container">
+            <h2>Notre Expertise MOB-IA</h2>
+            <p class="expertise-intro">
+                Découvrez comment nous maîtrisons chaque aspect de la construction BLOKIWOOD 
+                pour garantir le succès de votre projet d'autoconstruction.
+            </p>
+            
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="expertise-content">
+                        <div class="expertise-icon">🏗️</div>
+                        <h4>Ingénierie & Conception</h4>
+                        <p>
+                            Nos ingénieurs maîtrisent parfaitement la technologie BLOKIWOOD. Plans détaillés, 
+                            calculs de structure, optimisation thermique : tout est pensé pour la réussite de votre projet.
+                        </p>
+                        <ul class="expertise-features">
+                            <li>Plans architecturaux personnalisés</li>
+                            <li>Calculs de résistance certifiés</li>
+                            <li>Optimisation énergétique RT2020</li>
+                            <li>Adaptation au terrain et climat local</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="expertise-card">
+                    <div class="expertise-content">
+                        <div class="expertise-icon">🎓</div>
+                        <h4>Formation Pratique</h4>
+                        <p>
+                            Formation sur chantier ou à l'usine (Isère). Vous apprenez toutes les techniques 
+                            d'assemblage BLOKIWOOD avec nos formateurs experts avant de démarrer votre projet.
+                        </p>
+                        <ul class="expertise-features">
+                            <li>Formation hands-on sur chantier réel</li>
+                            <li>Manipulation des blocs BLOKIWOOD</li>
+                            <li>Techniques d'assemblage et finitions</li>
+                            <li>Certificat de compétence délivré</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="expertise-card">
+                    <div class="expertise-content">
+                        <div class="expertise-icon">🔧</div>
+                        <h4>Accompagnement Chantier</h4>
+                        <p>
+                            Suivi hebdomadaire de votre chantier par nos experts. Contrôles qualité, conseils techniques, 
+                            résolution de problèmes : nous sommes à vos côtés jusqu'à la réception finale.
+                        </p>
+                        <ul class="expertise-features">
+                            <li>Visite technique hebdomadaire</li>
+                            <li>Contrôles qualité à chaque étape</li>
+                            <li>Coordination avec les artisans</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="expertise-card">
+                    <div class="expertise-content">
+                        <div class="expertise-icon">📋</div>
+                        <h4>Gestion Administrative</h4>
+                        <p>
+                            Nous gérons toutes les démarches administratives complexes : permis de construire, 
+                            assurances, relations bancaires. Vous vous concentrez sur la construction.
+                        </p>
+                        <ul class="expertise-features">
+                            <li>Dossier permis de construire complet</li>
+                            <li>Montage dossier financement</li>
+                            <li>Assurances dommage-ouvrage</li>
+                            <li>Déclarations et attestations</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="expertise-card">
+                    <div class="expertise-content">
+                        <div class="expertise-icon">⚡</div>
+                        <h4>Logistique Optimisée</h4>
+                        <p>
+                            Livraison des matériaux BLOKIWOOD synchronisée avec l'avancement de votre chantier. 
+                            Stockage optimisé, planning précis, aucune perte de temps ni de matériau.
+                        </p>
+                        <ul class="expertise-features">
+                            <li>Livraisons planifiées au juste besoin</li>
+                            <li>Stockage sécurisé des matériaux</li>
+                            <li>Gestion des approvisionnements</li>
+                            <li>Coordination avec les corps d'état</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="expertise-card">
+                    <div class="expertise-content">
+                        <div class="expertise-icon">🎯</div>
+                        <h4>Garantie Résultat</h4>
+                        <p>
+                            Engagement ferme sur les délais, budgets et qualité. Si nous n'atteignons pas les objectifs 
+                            convenus, nous prenons en charge les écarts. Votre sérénité est notre priorité.
+                        </p>
+                        <ul class="expertise-features">
+                            <li>Garantie respect des délais</li>
+                            <li>Engagement budget sans dépassement</li>
+                            <li>Qualité certifiée à chaque étape</li>
+                            <li>SAV et maintenance post-construction</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOS 5 USP -->
+    <section class="usp scroll-reveal">
+        <div class="container">
+            <h2>Pourquoi Choisir MOB-IA ?</h2>
+            
+            <div class="usp-grid">
+                <div class="usp-card">
+                    <div class="icon">💰</div>
+                    <h3>Émancipation Financière</h3>
+                    <p>Économisez 40-60% vs CCMI classique tout en étant rassuré par un accompagnement expert à chaque étape de votre projet</p>
+                </div>
+                
+                <div class="usp-card">
+                    <div class="icon">🧱</div>
+                    <h3>Méthode BLOKIWOOD</h3>
+                    <p>Technologie d'assemblage accessible aux non-professionnels, comme des LEGO géants. Système 100% français, fabriqué en Isère (Champareilan 38), éprouvé depuis 15 ans</p>
+                </div>
+                
+                <div class="usp-card">
+                    <div class="icon">🎯</div>
+                    <h3>Accompagnement 360°</h3>
+                    <p>Coaching personnalisé du terrain à la livraison : administratif + technique + énergétique + financier. Vous n'êtes jamais seul</p>
+                </div>
+                
+                <div class="usp-card">
+                    <div class="icon">✅</div>
+                    <h3>Transparence Radicale</h3>
+                    <p>Tous les coûts, délais et difficultés affichés clairement dès le départ. Zéro surprise, zéro frais caché, zéro dépassement</p>
+                </div>
+                
+                <div class="usp-card">
+                    <div class="icon">🌱</div>
+                    <h3>Construction Écologique</h3>
+                    <p>Matériaux biosourcés, faible impact carbone, excellent bilan énergétique. Construisez durable pour l'avenir de vos enfants</p>
+                </div>
+                
+                <div class="usp-card">
+                    <div class="icon">🤝</div>
+                    <h3>Communauté de Bâtisseurs</h3>
+                    <p>Rejoignez un mouvement de propriétaires libres de la dette bancaire excessive. Entraide, partage d'expérience, fierté commune</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TÉMOIGNAGES -->
+    <section class="temoignages scroll-reveal" id="temoignages">
+        <div class="container">
+            <h2>Ils l'ont Fait, Pourquoi Pas Vous ?</h2>
+            
+            <div class="temoignages-grid">
+                <div class="temoignage-card">
+                    <p class="quote">
+                        "Nous avons construit notre maison de 110m² pour 155 000€ tout compris. 
+                        Avec un CCMI, on nous demandait 265 000€. L'accompagnement MOB-IA nous a 
+                        permis d'éviter toutes les erreurs coûteuses. Nous sommes tellement fiers de notre réussite !"
+                    </p>
+                    <p class="author">— Julie & Thomas M.</p>
+                    <p class="details">Maison 110m² • Caen, Normandie • Terminée en 17 mois</p>
+                    <span class="savings">Économie : 110 000€</span>
+                </div>
+                
+                <div class="temoignage-card">
+                    <p class="quote">
+                        "Je ne suis pas bricoleur de formation, je suis comptable. Grâce à la formation 
+                        et au système BLOKIWOOD, j'ai pu monter les murs moi-même avec mes amis. Le sentiment 
+                        quand on emménage dans SA maison construite de ses mains, c'est indescriptible."
+                    </p>
+                    <p class="author">— Marc D.</p>
+                    <p class="details">Maison 95m² • Le Havre • Terminée en 16 mois</p>
+                    <span class="savings">Économie :90 000€</span>
+                </div>
+                
+                <div class="temoignage-card">
+                    <p class="quote">
+                        "Au départ, j'étais sceptique. Mais l'équipe MOB-IA nous a accompagnés pas à pas. 
+                        Les formations, les plans détaillés, le suivi... tout était parfait. Notre maison 
+                        est magnifique et nous avons économisé de quoi financer les études de nos enfants !"
+                    </p>
+                    <p class="author">— Sarah & Pierre L.</p>
+                    <p class="details">Maison 120m² • Rouen • Terminée en 18 mois</p>
+                    <span class="savings">Économie : 115 000€</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq scroll-reveal" id="faq">
+        <div class="container">
+            <h2>Questions Fréquentes</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <h3>Je ne suis pas bricoleur, c'est pour moi ?</h3>
+                    <p>
+                        <strong>OUI, absolument !</strong> La majorité de nos clients ne sont PAS du métier : 
+                        professeurs, infirmières, comptables, cadres... Le système BLOKIWOOD est conçu pour 
+                        être accessible à tous. Notre formation + l'accompagnement continu vous 
+                        donnent toutes les clés. Vous apprenez au fur et à mesure, sans stress.
+                    </p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Combien de temps ça prend vraiment ?</h3>
+                    <p>
+                        <strong>18 mois du premier contact à l'emménagement.</strong> Dont 14 mois de chantier 
+                        effectif. Vous investissez environ 15h/semaine (week-ends principalement).
+                    </p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Quel est le taux de réussite ?</h3>
+                    <p>
+                        <strong>100% de nos clients accompagnés ont emménagé dans leur maison.</strong> 
+                        Pourquoi ce taux exceptionnel ? Parce que nous ne prenons que des projets viables 
+                        après étude approfondie, et nous vous accompagnons jusqu'au bout. Votre réussite 
+                        est notre réputation.
+                    </p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Le banquier va accepter ce type de projet ?</h3>
+                    <p>
+                        <strong>OUI, avec notre accompagnement.</strong> Nous vous aidons à monter un dossier 
+                        béton : devis détaillés, planning précis, garanties, assurances, références clients. 
+                        Nos clients obtiennent leur financement dans 95% des cas. Plusieurs banques partenaires 
+                        connaissent déjà notre méthode.
+                    </p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>C'est quoi exactement BLOKIWOOD ?</h3>
+                    <p>
+                        Des <strong>blocs de bois massif emboîtables</strong> (comme des LEGO géants) qui 
+                        forment les murs porteurs. Système allemand éprouvé depuis 15 ans, isolation intégrée, 
+                        montage rapide sans compétences techniques poussées. Résistance structurelle certifiée, 
+                        conformité RT2020 garantie.
+                    </p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Que comprend exactement l'accompagnement ?</h3>
+                    <p>
+                        <strong>Accompagnement complet A-Z :</strong> aide au choix du terrain, montage dossier 
+                        banque, permis de construire, formation technique 3 jours, plans détaillés, planning 
+                        personnalisé, suivi chantier, mise en relation artisans, contrôles qualité, réception 
+                        travaux. Vous n'êtes jamais seul.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-final scroll-reveal" id="contact">
+        <div class="container">
+            <h2>Prêt à Construire Votre Rêve Autrement?</h2>
+            <p class="subtitle">Rejoignez les familles qui ont choisi la liberté financière</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">100k€</div>
+                    <div class="stat-label">Économie moyenne</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">18</div>
+                    <div class="stat-label">Mois clé en main</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Taux de réussite</div>
+                </div>
+            </div>
+            
+            <button class="cta-button" onclick="scrollToForm()">
+                📥 Télécharger le Guide Gratuit Maintenant
+            </button>
+            
+            <div class="contact-info">
+                <p>📧 <a href="mailto:mehdi@avantispartner.fr">mehdi@avantispartner.fr</a> • 
+                📱 <a href="tel:0634787765">06 34 78 77 65</a></p>
+                <p>📍 <strong>Normandie</strong> (Calvados 14, Eure 27, Seine-Maritime 76)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="contact">
+                <h3>MOB-IA</h3>
+                <p>Construisez Autrement la Maison de Demain</p>
+                <p><strong>Spécialiste autoconstruction accompagnée BLOKIWOOD en Normandie</strong></p>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#mentions">Mentions légales</a>
+                <a href="#confidentialite">Politique de confidentialité</a>
+                <a href="#cgv">CGV</a>
+                <a href="#contact">Contact</a>
+            </div>
+            
+            <p style="margin-top: 25px; font-size: 0.9rem; opacity: 0.7;">
+                © 2026 MOB-IA • Normandie • Tous droits réservés<br>
+                SIRET : 99013027000012 • Assurance RC Pro : [À compléter]
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Gestion du formulaire
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const formData = {
+                prenom: document.getElementById('prenom').value,
+                email: document.getElementById('email').value,
+                terrain: document.getElementById('terrain').value,
+                budget: document.getElementById('budget').value,
+                timestamp: new Date().toISOString(),
+                source: 'landing-page-mob-ia'
+            };
+            
+            // Animation du bouton
+            const button = event.target.querySelector('.cta-button');
+            const originalText = button.textContent;
+            button.textContent = 'Envoi en cours...';
+            button.disabled = true;
+            
+            // Simulation d'envoi (à remplacer par votre système)
+            setTimeout(() => {
+                console.log('Données du formulaire:', formData);
+                
+                // Succès
+                alert(`✅ Parfait ${formData.prenom} !\n\nVotre guide "7 Étapes pour Autoconstruire sans se Planter" est en route vers ${formData.email}\n\n📧 Consultez votre boîte mail (et les spams) dans 2 minutes.\n\n🎁 BONUS : Vous recevrez aussi notre calculateur de budget Excel gratuit !\n\n📞 Mehdi vous contactera dans les 24h pour répondre à vos questions.`);
+                
+                // Réinitialisation
+                document.getElementById('leadForm').reset();
+                button.textContent = originalText;
+                button.disabled = false;
+                
+                // Tracking (à adapter selon votre solution analytics)
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'generate_lead', {
+                        'event_category': 'engagement',
+                        'event_label': 'guide_download',
+                        'value': 1
+                    });
+                }
+                
+            }, 1500);
+        }
+        
+        // Scroll vers le formulaire
+        function scrollToForm() {
+            document.querySelector('.configurator').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+        
+        // Animations au scroll
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.scroll-reveal');
+            
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('revealed');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Déclencher au chargement
+        
+        // Smooth scroll pour les liens internes
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Animation des compteurs au scroll
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number, .number');
+            
+            counters.forEach(counter => {
+                const target = counter.textContent;
+                const numericValue = parseInt(target.replace(/[^0-9]/g, ''));
+                
+                if (numericValue && !counter.classList.contains('animated')) {
+                    counter.classList.add('animated');
+                    animateValue(counter, 0, numericValue, 2000, target);
+                }
+            });
+        }
+        
+        function animateValue(element, start, end, duration, originalText) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const currentValue = Math.floor(progress * (end - start) + start);
+                
+                if (originalText.includes('k€')) {
+                    element.textContent = currentValue + 'k€';
+                } else if (originalText.includes('%')) {
+                    element.textContent = currentValue + '%';
+                } else {
+                    element.textContent = currentValue;
+                }
+                
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    element.textContent = originalText;
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+        
+        // Déclencher les animations des compteurs
+        const heroSection = document.querySelector('.hero');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(animateCounters, 500);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        observer.observe(heroSection);
+        
+        // Gestion des FAQ (optionnel - pour rendre les FAQ cliquables)
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Animation simple de highlight
+                this.style.backgroundColor = '#f8f9fa';
+                setTimeout(() => {
+                    this.style.backgroundColor = '';
+                }, 200);
+            });
+        });
+        
+        // Performance : lazy loading des images
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.src = img.src;
+            });
+        } else {
+            // Fallback pour les navigateurs plus anciens
+            const script = document.createElement('script');
+            script.src = 'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver';
+            document.head.appendChild(script);
+        }
+    </script>
+</body>
+</html>
