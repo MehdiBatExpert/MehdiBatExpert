@@ -1829,47 +1829,103 @@
         });
         
         // Gestion du formulaire
-        function handleSubmit(event) {
-            event.preventDefault();
+// Gestion du formulaire
+async function handleSubmit(event) {
+    event.preventDefault();
+    
+    // Récupération des données du formulaire
+    const formData = {
+        prenom: document.getElementById('prenom').value,
+        email: document.getElementById('email').value,
+        terrain: document.getElementById('terrain').value,
+        budget: parseInt(document.getElementById('budget').value),
+        timestamp: new Date().toISOString(),
+        source: 'landing-page-mob-ia'
+    };
+    
+    // Animation du bouton
+    const button = event.target.querySelector('.cta-button');
+    const originalText = button.textContent;
+    button.textContent = '⏳ Envoi en cours...';
+    button.disabled = true;
+    
+    try {
+        // ========================================
+        // CONFIGURATION API BREVO
+        // ========================================
+        const BREVO_API_KEY = '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';
+        const BREVO_LIST_ID = 5; // ID de votre liste LEADS_COLD
+        
+        // ========================================
+        // ENVOI À BREVO VIA API
+        // ========================================
+        const brevoResponse = await fetch('https://api.brevo.com/v3/contacts', {
+            method: 'POST',
+            headers: {
+                'accept': 'application/json',
+                'api-key': BREVO_API_KEY,
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: formData.email,
+                attributes: {
+                    FIRSTNAME: formData.prenom,
+                    BUDGET: formData.budget,
+                    TERRAIN: formData.terrain
+                },
+                listIds: [BREVO_LIST_ID],
+                updateEnabled: true
+            })
+        });
+        
+        // Vérification de la réponse
+        if (brevoResponse.ok || brevoResponse.status === 201) {
+            console.log('✅ Contact ajouté à Brevo avec succès');
             
-            const formData = {
-                prenom: document.getElementById('prenom').value,
-                email: document.getElementById('email').value,
-                terrain: document.getElementById('terrain').value,
-                budget: document.getElementById('budget').value,
-                timestamp: new Date().toISOString(),
-                source: 'landing-page-mob-ia'
-            };
+            // Message de succès
+            alert(`✅ Parfait ${formData.prenom} !\n\nVotre guide "7 Étapes pour Autoconstruire" est en route vers ${formData.email}\n\n📧 Consultez votre boîte mail (et les spams) dans 2 minutes.\n\n🎁 BONUS : Vous recevrez aussi notre simulateur Excel gratuit !\n\n📞 Mehdi vous contactera dans les 24h.`);
             
-            // Animation du bouton
-            const button = event.target.querySelector('.cta-button');
-            const originalText = button.textContent;
-            button.textContent = 'Envoi en cours...';
-            button.disabled = true;
+            // Réinitialisation du formulaire
+            document.getElementById('leadForm').reset();
+            button.textContent = originalText;
+            button.disabled = false;
             
-            // Simulation d'envoi (à remplacer par votre système)
-            setTimeout(() => {
-                console.log('Données du formulaire:', formData);
-                
-                // Succès
-                alert(`✅ Parfait ${formData.prenom} !\n\nVotre guide "7 Étapes pour Autoconstruire sans se Planter" est en route vers ${formData.email}\n\n📧 Consultez votre boîte mail (et les spams) dans 2 minutes.\n\n🎁 BONUS : Vous recevrez aussi notre calculateur de budget Excel gratuit !\n\n📞 Mehdi vous contactera dans les 24h pour répondre à vos questions.`);
-                
-                // Réinitialisation
+            // Google Analytics tracking (si configuré)
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'generate_lead', {
+                    'event_category': 'engagement',
+                    'event_label': 'guide_download',
+                    'value': 1
+                });
+            }
+            
+        } else {
+            // Erreur API Brevo
+            const errorData = await brevoResponse.json();
+            console.error('❌ Erreur Brevo:', errorData);
+            
+            // Si le contact existe déjà (code 400), c'est OK
+            if (brevoResponse.status === 400 && errorData.code === 'duplicate_parameter') {
+                alert(`✅ ${formData.prenom}, vous êtes déjà inscrit !\n\nConsultez vos emails (et spams) pour retrouver votre guide.\n\n📞 Besoin d'aide ? Contactez Mehdi : 06 34 78 77 65`);
                 document.getElementById('leadForm').reset();
                 button.textContent = originalText;
                 button.disabled = false;
-                
-                // Tracking (à adapter selon votre solution analytics)
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'generate_lead', {
-                        'event_category': 'engagement',
-                        'event_label': 'guide_download',
-                        'value': 1
-                    });
-                }
-                
-            }, 1500);
+            } else {
+                // Autre erreur
+                alert(`❌ Une erreur s'est produite.\n\nContactez-nous directement :\n📞 06 34 78 77 65\n📧 mehdi@avantispartner.fr`);
+                button.textContent = originalText;
+                button.disabled = false;
+            }
         }
+        
+    } catch (error) {
+        // Erreur réseau ou autre
+        console.error('❌ Erreur lors de l\'envoi:', error);
+        alert(`❌ Problème de connexion.\n\nVérifiez votre connexion internet ou contactez-nous :\n📞 06 34 78 77 65\n📧 mehdi@avantispartner.fr`);
+        button.textContent = originalText;
+        button.disabled = false;
+    }
+}
         
         // Scroll vers le formulaire
         function scrollToForm() {
